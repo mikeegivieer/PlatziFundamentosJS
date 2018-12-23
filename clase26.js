@@ -6,9 +6,10 @@ class Persona {
     }
 
     saludar(fn){
-        console.log( `Hola me llamo ${this.nombre} ${this.apellido} `) 
+        var { nombre, apellido }  = this
+        console.log( `Hola me llamo ${nombre} ${apellido} `) 
         if(fn){
-            
+            fn(nombre, apellido)
         }
     }
 
@@ -23,8 +24,14 @@ class Desarrollador extends Persona {
         super(nombre, apellido,altura)
       }
 
-      saludar(){
-        console.log('Hola soy desarrollador')      
+      saludar(fn){
+        var { nombre, apellido }  = this
+        // var nombre = this.nombre
+        // var apellido = this.apellido
+        console.log( `Hola me llamo ${nombre} ${apellido}. Soy desarrollador `) 
+        if(fn){
+            fn(nombre, apellido, true)
+        }  
       }
   
 }
@@ -47,3 +54,4 @@ function responderSaludo(nombre, apellido,esDev){
   var arturo = new Desarrollador('Arturo', 'Lifzyc',1.72)
 
   sacha.saludar(responderSaludo)
+  arturo.saludar(responderSaludo)
