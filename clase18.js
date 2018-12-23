@@ -28,5 +28,24 @@ var personasAltas = personas.filter(esAlta)
 // })
 
 
-console.log(personasAltas)
+// const pasarAlturaACms =persona=>{
+// //   persona.altura*=100
+// //Regresamos un nuevo objeto 
+//   return {
+//       ...persona,
+//       altura: persona.altura *100
+//   }
+// }
+//hace lo mismo que arriba 
+const pasarAlturaACms =persona=>({
+          ...persona,
+          altura: persona.altura *100
+      })
+    
+
+
+//map nos regresa un nuevo array construido apartir de una condicion
+var personasCms = personas.map(pasarAlturaACms)
+
+console.log(personasCms)
 
